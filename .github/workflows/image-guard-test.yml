@@ -11,9 +11,9 @@ permissions:
 
 jobs:
   guard:
-    uses: pocharlies-org/k8s-gitops-pocharlies/.github/workflows/reusable-image-guard.yml@80db19ff00ee0f38f45652b0385c20ce6a2ddb55
+    uses: pocharlies-org/k8s-gitops-pocharlies/.github/workflows/reusable-image-guard.yml@c9992b8a955ba34399e50c072eeda211a66c86ed
     with:
       dockerfile: Dockerfile
       imagen: alpine@sha256:9db2934886712d877c932e07249c75a59e6ca27adfbccc05261987a17bef2d63
       baseline: sizes-baseline.json
-      framework_sha: 80db19ff00ee0f38f45652b0385c20ce6a2ddb55
+      framework_sha: c9992b8a955ba34399e50c072eeda211a66c86ed
