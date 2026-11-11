@@ -1,0 +1,33 @@
+name: image-guard-test
+
+# PR de prueba desechable (INFRA-1298, criterio C4): caso (b), la imagen
+# (alpine@digest, 3 794 375 B comprimidos) crece un +279%% sobre la baseline
+# de prueba (1 000 000 B), muy por encima del umbral del 20%%.
+#  - guard-bloquear: el check debe FALLAR (modo bloquear).
+#  - guard-avisar:   el check debe PASAR con un ::warning:: (modo avisar).
+# Se cierra sin fusionar tras enlazar la ejecucion en la PR de gitops.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  guard-bloquear:
+    uses: pocharlies-org/k8s-gitops-pocharlies/.github/workflows/reusable-image-guard.yml@80db19ff00ee0f38f45652b0385c20ce6a2ddb55
+    with:
+      dockerfile: Dockerfile
+      imagen: alpine@sha256:9db2934886712d877c932e07249c75a59e6ca27adfbccc05261987a17bef2d63
+      baseline: sizes-baseline.json
+      modo: bloquear
+      crecimiento: 20
+      framework_sha: 80db19ff00ee0f38f45652b0385c20ce6a2ddb55
+  guard-avisar:
+    uses: pocharlies-org/k8s-gitops-pocharlies/.github/workflows/reusable-image-guard.yml@80db19ff00ee0f38f45652b0385c20ce6a2ddb55
+    with:
+      dockerfile: Dockerfile
+      imagen: alpine@sha256:9db2934886712d877c932e07249c75a59e6ca27adfbccc05261987a17bef2d63
+      baseline: sizes-baseline.json
+      modo: avisar
+      crecimiento: 20
+      framework_sha: 80db19ff00ee0f38f45652b0385c20ce6a2ddb55
