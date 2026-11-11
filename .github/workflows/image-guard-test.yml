@@ -21,6 +21,7 @@ jobs:
       baseline: sizes-baseline.json
       modo: bloquear
       crecimiento: 20
+      nombre: bloquear
       framework_sha: c9992b8a955ba34399e50c072eeda211a66c86ed
   guard-avisar:
     uses: pocharlies-org/k8s-gitops-pocharlies/.github/workflows/reusable-image-guard.yml@c9992b8a955ba34399e50c072eeda211a66c86ed
@@ -30,4 +31,5 @@ jobs:
       baseline: sizes-baseline.json
       modo: avisar
       crecimiento: 20
+      nombre: avisar
       framework_sha: c9992b8a955ba34399e50c072eeda211a66c86ed
