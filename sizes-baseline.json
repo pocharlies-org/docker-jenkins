@@ -1,0 +1,11 @@
+{
+  "formato": "baseline de prueba INFRA-1298 (desechable): comprimido exacto del digest fijado",
+  "imagenes": {
+    "alpine": {
+      "sha256:9db2934886712d877c932e07249c75a59e6ca27adfbccc05261987a17bef2d63": {
+        "comprimido": 3794375,
+        "descomprimido": {"sin_dato": "prueba"}
+      }
+    }
+  }
+}
